@@ -16,10 +16,10 @@ import javax.validation.Valid;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/cliente")
 @AllArgsConstructor
 @CrossOrigin("*")
-public class ClientController {
+public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping("/")
