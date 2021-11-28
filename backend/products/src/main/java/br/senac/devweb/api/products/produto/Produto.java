@@ -36,7 +36,7 @@ public class Produto {
     private Double valor;
 
     @NotNull(message = "O campo unidade de medida não pode ser nulo")
-    @Column(name = "UNIDADE_MEDIDA")
+    @Column(name = "UNIDADEMEDIDA")
     private UnidadeMedida unidadeMedida;
 
     @NotNull(message = "O campo quantidade não pode ser nulo")
@@ -57,7 +57,7 @@ public class Produto {
 
     @NotNull(message = "A categoria é obrigatória!")
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
-    @JoinColumn(name = "idCategoria")
+    @JoinColumn(name = "IDCATEGORIA")
     private Categoria categoria;
 
     public enum UnidadeMedida {
