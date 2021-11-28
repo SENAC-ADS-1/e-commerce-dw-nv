@@ -3,13 +3,10 @@ package br.senac.devweb.api.ecommerce.venda;
 import br.senac.devweb.api.ecommerce.cliente.ClienteRepresentation;
 import br.senac.devweb.api.ecommerce.endereco.EnderecoRepresentation;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -28,13 +25,8 @@ public interface VendaRepresentation {
         @NotNull(message = "O campo endereco não pode ser nulo!")
         private Long endereco;
 
-        @NotNull(message = "O campo criadoEm não pode ser nulo!")
-        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-        @JsonFormat(pattern = "yyyy-MM-dd")
-        private LocalDate criadoEm;
-
         @NotNull(message = "O campo obs não pode ser nulo!")
-        @Size(min = 1, max = 100, message = "O campo obs deve conter entre 1 e 100 caracteres!")
+        @Size(max = 100, message = "O campo obs deve conter no máximo 100 caracteres!")
         private String obs;
     }
 
@@ -55,7 +47,7 @@ public interface VendaRepresentation {
                     .id(venda.getId())
                     .cliente(ClienteRepresentation.ClienteDetail.from(venda.getCliente()))
                     .endereco(EnderecoRepresentation.EnderecoDetail.from(venda.getEndereco()))
-                    .criadoEm(LocalDate.now())
+                    .criadoEm(venda.getCriadoEm())
                     .obs(venda.getObs())
                     .build();
         }
