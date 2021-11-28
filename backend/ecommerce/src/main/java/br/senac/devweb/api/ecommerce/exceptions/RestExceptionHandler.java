@@ -1,6 +1,7 @@
 package br.senac.devweb.api.ecommerce.exceptions;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -51,6 +52,20 @@ public class RestExceptionHandler {
                 .timestamp(LocalDateTime.now())
                 .status(HttpStatus.BAD_REQUEST.value())
                 .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
+                .message(exception.getLocalizedMessage())
+                .path(request.getContextPath() + request.getServletPath())
+                .build();
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    @ResponseBody
+    public ErrorPayload handleHttpMessageNotReadableException(HttpMessageNotReadableException exception, HttpServletRequest request) {
+        return ErrorPayload
+                .builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.UNPROCESSABLE_ENTITY.value())
+                .error(HttpStatus.UNPROCESSABLE_ENTITY.getReasonPhrase())
                 .message(exception.getLocalizedMessage())
                 .path(request.getContextPath() + request.getServletPath())
                 .build();
