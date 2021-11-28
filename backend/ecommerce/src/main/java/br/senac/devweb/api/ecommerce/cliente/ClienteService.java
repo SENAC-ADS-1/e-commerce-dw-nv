@@ -15,7 +15,7 @@ public class ClienteService {
     private final ClienteRepository clientRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public Cliente save(ClienteRepresentation.ClienteRep clientRep) {
+    public Cliente saveCliente(ClienteRepresentation.ClienteRep clientRep) {
         return this.clientRepository.save(
                 Cliente
                         .builder()
@@ -28,19 +28,19 @@ public class ClienteService {
         );
     }
 
-    public Cliente getClient(Long id) {
+    public Cliente getCliente(Long id) {
         BooleanExpression filter = QCliente.cliente.id.eq(id)
                 .and(QCliente.cliente.status.eq(Cliente.Status.ATIVO));
 
         return this.clientRepository.findOne(filter).orElseThrow(() -> new NotFoundException("Cliente não encontrado!"));
     }
 
-    public Page<Cliente> getAllClients(Predicate filter, Pageable pageable) {
+    public Page<Cliente> getAllClientes(Predicate filter, Pageable pageable) {
         return this.clientRepository.findAll(filter, pageable);
     }
 
-    public Cliente update(Long id, ClienteRepresentation.ClienteRep clientRep) {
-        Cliente oldData = this.getClient(id);
+    public Cliente updateCliente(Long id, ClienteRepresentation.ClienteRep clientRep) {
+        Cliente oldData = this.getCliente(id);
 
         Cliente updatedData = oldData
                 .toBuilder()
@@ -54,8 +54,8 @@ public class ClienteService {
         return this.clientRepository.save(updatedData);
     }
 
-    public void delete(Long id) {
-        Cliente cliente = this.getClient(id);
+    public void deleteCliente(Long id) {
+        Cliente cliente = this.getCliente(id);
 
         cliente.setStatus(Cliente.Status.INATIVO);
 

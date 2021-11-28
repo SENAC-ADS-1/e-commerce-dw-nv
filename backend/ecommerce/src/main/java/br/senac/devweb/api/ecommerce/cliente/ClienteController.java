@@ -30,7 +30,7 @@ public class ClienteController {
                 .status(HttpStatus.CREATED)
                 .body(
                         ClienteRepresentation.ClienteDetail.from(
-                                this.clienteService.save(clienteRep))
+                                this.clienteService.saveCliente(clienteRep))
                 );
     }
 
@@ -43,7 +43,7 @@ public class ClienteController {
                 .status(HttpStatus.OK)
                 .body(
                         ClienteRepresentation.ClienteDetail.from(
-                                this.clienteService.update(id, clienteRep))
+                                this.clienteService.updateCliente(id, clienteRep))
                 );
     }
 
@@ -55,7 +55,7 @@ public class ClienteController {
                 .status(HttpStatus.OK)
                 .body(
                         ClienteRepresentation.ClienteDetail.from(
-                                this.clienteService.getClient(id)
+                                this.clienteService.getCliente(id)
                         )
                 );
     }
@@ -76,7 +76,7 @@ public class ClienteController {
 
         Pageable pageRequest = PageRequest.of(selectedPage-1, pageSize);
 
-        Page<Cliente> clientePage = this.clienteService.getAllClients(filter, pageRequest);
+        Page<Cliente> clientePage = this.clienteService.getAllClientes(filter, pageRequest);
 
         Pagination pagination = Pagination
                 .builder()
@@ -97,7 +97,7 @@ public class ClienteController {
     public ResponseEntity<ClienteRepresentation.ClienteDetail> deleteClient(
             @PathVariable("id") Long id
     ) {
-        this.clienteService.delete(id);
+        this.clienteService.deleteCliente(id);
         return ResponseEntity
                 .status(HttpStatus.NO_CONTENT)
                 .build();
