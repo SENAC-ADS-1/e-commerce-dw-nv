@@ -35,13 +35,11 @@ public class Venda {
     private Endereco endereco;
 
     @NotNull(message = "O campo criadoEm não pode ser nulo!")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "CRIADOEM")
     private LocalDate criadoEm;
 
     @NotNull(message = "O campo obs não pode ser nulo!")
-    @Size(min = 1, max = 100, message = "O campo obs deve conter entre 1 e 100 caracteres!")
+    @Size(max = 100, message = "O campo obs deve conter no máximo 100 caracteres!")
     @Column(name = "OBS")
     private String obs;
 }
