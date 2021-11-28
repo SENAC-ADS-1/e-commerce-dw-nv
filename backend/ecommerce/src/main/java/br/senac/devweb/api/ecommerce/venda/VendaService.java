@@ -47,7 +47,6 @@ public class VendaService {
                 .toBuilder()
                 .cliente(cliente)
                 .endereco(endereco)
-                .criadoEm(LocalDate.now())
                 .obs(vendaRep.getObs())
                 .build();
 
