@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @AllArgsConstructor
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final String[] AUTH_WHITELIST = {
+            "/administrador/*",
             "/cliente/*",
             "/endereco/*",
             "/contato/*",
