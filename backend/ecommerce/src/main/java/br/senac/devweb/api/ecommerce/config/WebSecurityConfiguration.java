@@ -16,6 +16,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             "/cliente/*",
             "/endereco/*",
             "/contato/*",
+            "/produto/*",
             "/venda/*",
             "/h2-console",
             "/h2-console/*"
