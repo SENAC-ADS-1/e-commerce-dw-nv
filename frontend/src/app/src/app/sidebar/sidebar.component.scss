@@ -1,0 +1,39 @@
+
+body.thumb {
+  transform: scale(0.4);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+#sidenav { 
+  height: 100%;
+}
+
+main {
+  min-height: 80vh;
+}
+
+li {
+  a {
+    display: flex;
+    color: #fafafa;
+    span {
+      align-self: center;
+      margin-left: 10px;
+    }
+  }
+}
+
+[class*='container'] {
+  border: 1px dashed #eee;
+  background-clip: content-box;
+}
+
+.row [class*='col'] {
+  background-color: #efefef;
+  background-clip: content-box;
+}
+
+.nav-item {
+  background-color: #666;
+  background-clip: content-box;
+}
