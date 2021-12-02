@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ProdutoService {
     private final ProdutoRepository produtoRepository;
 
-    public Produto getProduct(Long id) {
+    public Produto getProduto(Long id) {
         BooleanExpression filter = QProduto.produto.id.eq(id)
                 .and(QProduto.produto.status.eq(Produto.Status.ATIVO));
 
@@ -21,7 +21,7 @@ public class ProdutoService {
                 .orElseThrow(() -> new NotFoundException("Produto não encontrado!"));
     }
 
-    public Page<Produto> getAllProducts(Predicate filter, Pageable pageable) {
+    public Page<Produto> getAllProdutos(Predicate filter, Pageable pageable) {
         return this.produtoRepository.findAll(filter, pageable);
     }
 }

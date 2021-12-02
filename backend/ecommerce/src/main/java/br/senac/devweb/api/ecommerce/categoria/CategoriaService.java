@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoriaService {
     private CategoriaRepository categoriaRepository;
 
-    public Categoria getCategory(Long id) {
+    public Categoria getCategoria(Long id) {
         BooleanExpression filter = QCategoria.categoria.id.eq(id)
                 .and(QCategoria.categoria.status.eq(Categoria.Status.ATIVO));
 
@@ -23,11 +23,11 @@ public class CategoriaService {
                 .orElseThrow(() -> new NotFoundException("Categoria não encontrada!"));
     }
 
-    public Page<Categoria> getAllCategories(Predicate filter, Pageable pageable) {
+    public Page<Categoria> getAllCategorias(Predicate filter, Pageable pageable) {
         return this.categoriaRepository.findAll(filter, pageable);
     }
 
-    public List<Categoria> getCategoriesWithoutPagination(Predicate filter) {
+    public List<Categoria> getCategoriasWithoutPagination(Predicate filter) {
         return this.categoriaRepository.findAll(filter);
     }
 }

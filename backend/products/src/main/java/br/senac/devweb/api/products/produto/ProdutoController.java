@@ -26,49 +26,49 @@ public class ProdutoController {
     private final CategoriaService categoriaService;
 
     @PostMapping("/")
-    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> createProduct(
+    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> createProduto(
             @Valid @RequestBody ProdutoRepresentation.ProdutoRep produtoRep
     ) {
-        Categoria categoria = this.categoriaService.getCategory(produtoRep.getCategoria());
+        Categoria categoria = this.categoriaService.getCategoria(produtoRep.getCategoria());
 
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
                         ProdutoRepresentation.ProdutoDetail.from(
-                                this.produtoService.saveProduct(produtoRep, categoria)
+                                this.produtoService.saveProduto(produtoRep, categoria)
                         )
                 );
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> updateProduct(
+    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> updateProduto(
             @PathVariable("id") Long id,
             @Valid @RequestBody ProdutoRepresentation.ProdutoRep produtoRep
     ) {
-        Categoria categoria = this.categoriaService.getCategory(produtoRep.getCategoria());
+        Categoria categoria = this.categoriaService.getCategoria(produtoRep.getCategoria());
 
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
                         ProdutoRepresentation.ProdutoDetail.from(
-                                this.produtoService.updateProduct(id, produtoRep, categoria)
+                                this.produtoService.updateProduto(id, produtoRep, categoria)
                         )
                 );
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> readProductById(
+    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> readProdutoById(
             @PathVariable("id") Long id
     ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
-                        ProdutoRepresentation.ProdutoDetail.from(this.produtoService.getProduct(id))
+                        ProdutoRepresentation.ProdutoDetail.from(this.produtoService.getProduto(id))
                 );
     }
 
     @GetMapping("/")
-    public ResponseEntity<Pagination> readProducts(
+    public ResponseEntity<Pagination> readAllProdutos(
             @QuerydslPredicate(root = Produto.class) Predicate filters,
             @Valid @RequestParam(name = "selectedPage", defaultValue = "1") Integer selectedPage,
             @RequestParam(name = "pageSize", required = false, defaultValue = "20") Integer pageSize
@@ -83,7 +83,7 @@ public class ProdutoController {
 
         Pageable pageRequest = PageRequest.of(selectedPage-1, pageSize);
 
-        Page<Produto> produtoPage = this.produtoService.getAllProducts(filter, pageRequest);
+        Page<Produto> produtoPage = this.produtoService.getAllProdutos(filter, pageRequest);
 
         Pagination pagination = Pagination
                 .builder()
@@ -101,7 +101,7 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> deleteProduct(
+    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> deleteProduto(
             @PathVariable("id") Long id
     ) {
         this.produtoService.deleteProduct(id);

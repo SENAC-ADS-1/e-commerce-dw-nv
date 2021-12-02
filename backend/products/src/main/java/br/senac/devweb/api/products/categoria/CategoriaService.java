@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoriaService {
     private CategoriaRepository categoriaRepository;
 
-    public Categoria saveCategory(CategoriaRepresentation.CategoriaRep categoriaRep) {
+    public Categoria saveCategoria(CategoriaRepresentation.CategoriaRep categoriaRep) {
         return this.categoriaRepository.save(
                 Categoria
                         .builder()
@@ -25,7 +25,7 @@ public class CategoriaService {
         );
     }
 
-    public Categoria getCategory(Long id) {
+    public Categoria getCategoria(Long id) {
         BooleanExpression filter = QCategoria.categoria.id.eq(id)
                 .and(QCategoria.categoria.status.eq(Categoria.Status.ATIVO));
 
@@ -33,16 +33,16 @@ public class CategoriaService {
                 .orElseThrow(() -> new NotFoundException("Categoria não encontrada!"));
     }
 
-    public Page<Categoria> getAllCategories(Predicate filter, Pageable pageable) {
+    public Page<Categoria> getAllCategorias(Predicate filter, Pageable pageable) {
         return this.categoriaRepository.findAll(filter, pageable);
     }
 
-    public List<Categoria> getCategoriesWithoutPagination(Predicate filter) {
+    public List<Categoria> getAllCategoriasWithoutPagination(Predicate filter) {
         return this.categoriaRepository.findAll(filter);
     }
 
-    public Categoria updateCategory(Long id, CategoriaRepresentation.CategoriaRep categoriaRep) {
-        Categoria oldCategory = this.getCategory(id);
+    public Categoria updateCategoria(Long id, CategoriaRepresentation.CategoriaRep categoriaRep) {
+        Categoria oldCategory = this.getCategoria(id);
 
         Categoria updatedCategory = oldCategory
                 .toBuilder()
@@ -53,8 +53,8 @@ public class CategoriaService {
         return this.categoriaRepository.save(updatedCategory);
     }
 
-    public void deleteCategory(Long id) {
-        Categoria categoria = this.getCategory(id);
+    public void deleteCategoria(Long id) {
+        Categoria categoria = this.getCategoria(id);
 
         categoria.setStatus(Categoria.Status.INATIVO);
 
