@@ -1,0 +1,18 @@
+<section class="col-12 category-list-section">
+  <div class="col-9">
+    <table class="table table-stripped table-hover">
+      <thead>
+        <tr>
+          <th class="col-3">Código</th>
+          <th class="col-9">Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias.content">
+          <td>{{ categoria.id }}</td>
+          <td>{{ categoria.descricao }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

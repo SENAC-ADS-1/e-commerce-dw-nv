@@ -1,5 +1,7 @@
 <app-header></app-header>
-<app-sidebar></app-sidebar>
-<main class="container-fluid h-100 overflwo-auto">
-  <router-outlet></router-outlet>
-</main>
+<div class="body-container">
+  <app-sidebar></app-sidebar>
+    <main class="col-9 main-container container-fluid">
+      <router-outlet class="col-12"></router-outlet>
+    </main>
+</div>
