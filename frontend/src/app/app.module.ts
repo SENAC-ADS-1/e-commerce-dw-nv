@@ -1,22 +1,24 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './src/app/header/header.component';
-import { SidebarComponent } from './src/app/sidebar/sidebar.component';
-import { CategoriaListarComponent } from './src/app/modules/categoria/pages/categoria-listar/categoria-listar.component';
+import { HeaderComponent } from './header/header.component';
+import { CategoriaModule } from './modules/categoria/categoria.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent,
-    CategoriaListarComponent
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    CategoriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
