@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class ProdutoService {
     private final ProdutoRepository produtoRepository;
 
-    public Produto saveProduct(ProdutoRepresentation.ProdutoRep produtoRep, Categoria categoria) {
+    public Produto saveProduto(ProdutoRepresentation.ProdutoRep produtoRep, Categoria categoria) {
         return this.produtoRepository.save(
                 Produto
                         .builder()
@@ -33,7 +33,7 @@ public class ProdutoService {
         );
     }
 
-    public Produto getProduct(Long id) {
+    public Produto getProduto(Long id) {
         BooleanExpression filter = QProduto.produto.id.eq(id)
                 .and(QProduto.produto.status.eq(Produto.Status.ATIVO));
 
@@ -41,12 +41,12 @@ public class ProdutoService {
                 .orElseThrow(() -> new NotFoundException("Produto não encontrado!"));
     }
 
-    public Page<Produto> getAllProducts(Predicate filter, Pageable pageable) {
+    public Page<Produto> getAllProdutos(Predicate filter, Pageable pageable) {
         return this.produtoRepository.findAll(filter, pageable);
     }
 
-    public Produto updateProduct(Long id, ProdutoRepresentation.ProdutoRep produtoRep, Categoria categoria) {
-        Produto oldProduct = this.getProduct(id);
+    public Produto updateProduto(Long id, ProdutoRepresentation.ProdutoRep produtoRep, Categoria categoria) {
+        Produto oldProduct = this.getProduto(id);
 
         Produto updatedProduct = oldProduct
                 .toBuilder()
@@ -66,7 +66,7 @@ public class ProdutoService {
     }
 
     public void deleteProduct(Long id) {
-        Produto produto = this.getProduct(id);
+        Produto produto = this.getProduto(id);
 
         produto.setStatus(Produto.Status.INATIVO);
 

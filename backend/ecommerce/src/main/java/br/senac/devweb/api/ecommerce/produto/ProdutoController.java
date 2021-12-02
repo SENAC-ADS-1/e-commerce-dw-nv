@@ -1,7 +1,5 @@
 package br.senac.devweb.api.ecommerce.produto;
 
-import br.senac.devweb.api.ecommerce.categoria.Categoria;
-import br.senac.devweb.api.ecommerce.categoria.CategoriaService;
 import br.senac.devweb.api.ecommerce.util.Pagination;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -25,18 +23,18 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> readProductById(
+    public ResponseEntity<ProdutoRepresentation.ProdutoDetail> readProdutoById(
             @PathVariable("id") Long id
     ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
-                        ProdutoRepresentation.ProdutoDetail.from(this.produtoService.getProduct(id))
+                        ProdutoRepresentation.ProdutoDetail.from(this.produtoService.getProduto(id))
                 );
     }
 
     @GetMapping("/")
-    public ResponseEntity<Pagination> readProducts(
+    public ResponseEntity<Pagination> readAllProdutos(
             @QuerydslPredicate(root = Produto.class) Predicate filters,
             @Valid @RequestParam(name = "selectedPage", defaultValue = "1") Integer selectedPage,
             @RequestParam(name = "pageSize", required = false, defaultValue = "20") Integer pageSize
@@ -51,7 +49,7 @@ public class ProdutoController {
 
         Pageable pageRequest = PageRequest.of(selectedPage-1, pageSize);
 
-        Page<Produto> produtoPage = this.produtoService.getAllProducts(filter, pageRequest);
+        Page<Produto> produtoPage = this.produtoService.getAllProdutos(filter, pageRequest);
 
         Pagination pagination = Pagination
                 .builder()

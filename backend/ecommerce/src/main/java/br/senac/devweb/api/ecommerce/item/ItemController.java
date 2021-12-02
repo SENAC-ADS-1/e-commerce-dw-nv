@@ -31,7 +31,7 @@ public class ItemController {
             @Valid @RequestBody ItemRepresentation.ItemRep itemRep
     ) {
         Venda venda = this.vendaService.getVenda(itemRep.getVenda());
-        Produto produto = this.produtoService.getProduct(itemRep.getProduto());
+        Produto produto = this.produtoService.getProduto(itemRep.getProduto());
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -48,7 +48,7 @@ public class ItemController {
             @Valid @RequestBody ItemRepresentation.ItemRep itemRep
     ) {
         Venda venda = this.vendaService.getVenda(itemRep.getVenda());
-        Produto produto = this.produtoService.getProduct(itemRep.getProduto());
+        Produto produto = this.produtoService.getProduto(itemRep.getProduto());
 
         return ResponseEntity
                 .status(HttpStatus.OK)

@@ -25,20 +25,20 @@ public class CategoriaController {
     private CategoriaService categoriaService;
 
     @PostMapping("/")
-    public ResponseEntity<CategoriaRepresentation.CategoriaDetail> createCategory(
+    public ResponseEntity<CategoriaRepresentation.CategoriaDetail> createCategoria(
             @Valid @RequestBody CategoriaRepresentation.CategoriaRep categoriaRep
     ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
                         CategoriaRepresentation.CategoriaDetail.from(
-                                this.categoriaService.saveCategory(categoriaRep)
+                                this.categoriaService.saveCategoria(categoriaRep)
                         )
                 );
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoriaRepresentation.CategoriaDetail> updateCategory(
+    public ResponseEntity<CategoriaRepresentation.CategoriaDetail> updateCategoria(
             @PathVariable("id") Long id,
             @Valid @RequestBody CategoriaRepresentation.CategoriaRep categoriaRep
     ) {
@@ -46,26 +46,26 @@ public class CategoriaController {
                 .status(HttpStatus.OK)
                 .body(
                         CategoriaRepresentation.CategoriaDetail.from(
-                                this.categoriaService.updateCategory(id, categoriaRep)
+                                this.categoriaService.updateCategoria(id, categoriaRep)
                         )
                 );
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CategoriaRepresentation.CategoriaDetail> readCategoryById(
+    public ResponseEntity<CategoriaRepresentation.CategoriaDetail> readCategoriaById(
             @PathVariable("id") Long id
     ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
                         CategoriaRepresentation.CategoriaDetail.from(
-                                this.categoriaService.getCategory(id)
+                                this.categoriaService.getCategoria(id)
                         )
                 );
     }
 
     @GetMapping("/")
-    public ResponseEntity<Pagination> readAllCategories(
+    public ResponseEntity<Pagination> readAllCategorias(
             @QuerydslPredicate(root = Categoria.class) Predicate filters,
             @Valid @RequestParam(name = "selectedPage", defaultValue = "1") Integer selectedPage,
             @RequestParam(name = "pageSize", required = false, defaultValue = "20") Integer pageSize
@@ -80,7 +80,7 @@ public class CategoriaController {
 
         Pageable pageRequest = PageRequest.of(selectedPage-1, pageSize);
 
-        Page<Categoria> categoriaPage = this.categoriaService.getAllCategories(filter, pageRequest);
+        Page<Categoria> categoriaPage = this.categoriaService.getAllCategorias(filter, pageRequest);
 
         Pagination pagination = Pagination
                 .builder()
@@ -98,7 +98,7 @@ public class CategoriaController {
     }
 
     @GetMapping("/unpaginated")
-    public ResponseEntity<List<CategoriaRepresentation.CategoriaList>> getWithoutPagination(
+    public ResponseEntity<List<CategoriaRepresentation.CategoriaList>> readAllCategoriasWithoutPagination(
             @QuerydslPredicate(root = Categoria.class) Predicate filters
     ) {
         BooleanExpression filter = Objects.isNull(filters) ?
@@ -109,16 +109,16 @@ public class CategoriaController {
                 .status(HttpStatus.OK)
                 .body(
                         CategoriaRepresentation.CategoriaList.from(
-                                this.categoriaService.getCategoriesWithoutPagination(filter)
+                                this.categoriaService.getAllCategoriasWithoutPagination(filter)
                         )
                 );
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<CategoriaRepresentation.CategoriaDetail> deleteCategory(
+    public ResponseEntity<CategoriaRepresentation.CategoriaDetail> deleteCategoria(
             @PathVariable("id") Long id
     ) {
-        this.categoriaService.deleteCategory(id);
+        this.categoriaService.deleteCategoria(id);
 
         return ResponseEntity
                 .status(HttpStatus.NO_CONTENT)
