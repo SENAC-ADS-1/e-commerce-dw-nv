@@ -1,14 +1,14 @@
 <section class="container-fluid">
   <div class="row">
-    <div class="col-md-1">
-      <label class="form-label" for="codigoProduto">Código</label>
-      <input class="form-control" id="codigoProduto" type="text" [value]="produto.id" readonly>
+    <div class="col">
+      <h3> {{ produto.nome }} - #{{ produto.id }}</h3>
     </div>
-    <div class="col-md-3">
-      <label for="nomeProduto" class="form-label">Nome</label>
-      <input class="form-control" id="nomeProduto" type="text" [value]="produto.nome" readonly>
+    <div class="col-auto mb-3">
+      <a class="btn btn-secondary" role="button" [routerLink]="['/produto/lista']">Ir para lista</a>
     </div>
-    <div class="col-md-5">
+  </div>
+  <div class="row">
+    <div class="col-md-9">
       <label for="descricaoProduto" class="form-label">Descrição</label>
       <input class="form-control" id="descricaoProduto" type="text" [value]="produto.descricao" readonly>
     </div>
@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-2">
       <label for="quantidadeProduto" class="form-label">Quantidade</label>
-      <input class="form-control" id="quantidadeProduto" type="text" [value]="produto.quantidade" readonly>
+      <input class="form-control" id="quantidadeProduto" type="number" [value]="produto.qtde" readonly>
     </div>
     <div class="col-md-4">
       <label for="fabricanteProduto" class="form-label">Fabricante</label>
@@ -32,8 +32,7 @@
     </div>
     <div class="col-md-3">
       <label for="categoriaProduto" class="form-label">Categoria</label>
-      <input class="form-control" id="categoriaProduto" type="text" [value]="" readonly>
+      <input class="form-control" id="categoriaProduto" type="text" [value]="produto.categoria.descricao" readonly>
     </div>
-    <!-- TODO: add categoria -->
   </div>
 </section>

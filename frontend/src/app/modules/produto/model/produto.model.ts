@@ -5,8 +5,8 @@ export interface IProduto {
   complemento?: string;
   valor: number;
   unidadeMedida: string;
-  quantidade: number;
+  qtde: number;
   fabricante: string;
   fornecedor?: string;
-  categoria: number;
+  categoria: any;
 }
