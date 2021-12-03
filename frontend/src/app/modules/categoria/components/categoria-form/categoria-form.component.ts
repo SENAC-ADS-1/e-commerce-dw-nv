@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ICategoria } from '../../model/categoria.model';
 
@@ -8,7 +9,7 @@ import { ICategoria } from '../../model/categoria.model';
 })
 export class CategoriaFormComponent implements OnInit {
 
-	constructor() { }
+	constructor(private location: Location) { }
 
 	@Input()
 	categoria = {} as ICategoria;
@@ -31,5 +32,9 @@ export class CategoriaFormComponent implements OnInit {
 	disabled() {
 		return !this.categoria.descricao || this.categoria.descricao.length >= 30;
 	}
+
+  goBack() {
+    this.location.back();
+  }
 
 }

@@ -1,11 +1,27 @@
-<div class="col-md-12">Descrição:</div>
-<div class="col-md-12">
-    <input class="form-input col-md-6" type="text" 
-	(input)="limpaErro()"
-	[(ngModel)]= "categoria.descricao">
-</div>
-<div class="col-md-12">
-	<button class="btn btn-success" (click)="salvar()" [disabled]="disabled()">
-		Salvar
-	</button>
-</div>
+<section class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>Categoria</h3>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-dark" (click)="goBack()">Voltar</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label for="descricaoCategoria" class="form-label">Descrição</label>
+        <input type="text" class="form-control" id="descricaoCategoria" (input)="limpaErro()"
+          [(ngModel)]="categoria.descricao">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-auto">
+        <button class="btn btn-success" (click)="salvar()" [disabled]="disabled()">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
