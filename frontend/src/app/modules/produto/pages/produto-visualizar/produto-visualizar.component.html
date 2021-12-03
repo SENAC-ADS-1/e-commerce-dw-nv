@@ -1,0 +1,39 @@
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-md-1">
+      <label class="form-label" for="codigoProduto">Código</label>
+      <input class="form-control" id="codigoProduto" type="text" [value]="produto.id" readonly>
+    </div>
+    <div class="col-md-3">
+      <label for="nomeProduto" class="form-label">Nome</label>
+      <input class="form-control" id="nomeProduto" type="text" [value]="produto.nome" readonly>
+    </div>
+    <div class="col-md-5">
+      <label for="descricaoProduto" class="form-label">Descrição</label>
+      <input class="form-control" id="descricaoProduto" type="text" [value]="produto.descricao" readonly>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="medidaProduto" class="form-label">Unidade de medida</label>
+      <input class="form-control" id="medidaProduto" type="text" [value]="produto.unidadeMedida" readonly>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <label for="quantidadeProduto" class="form-label">Quantidade</label>
+      <input class="form-control" id="quantidadeProduto" type="text" [value]="produto.quantidade" readonly>
+    </div>
+    <div class="col-md-4">
+      <label for="fabricanteProduto" class="form-label">Fabricante</label>
+      <input class="form-control" id="fabricanteProduto" type="text" [value]="produto.fabricante" readonly>
+    </div>
+    <div class="col-md-3">
+      <label for="fornecedorProduto" class="form-label">Fornecedor</label>
+      <input class="form-control" id="fornecedorProduto" type="text" [value]="produto.fornecedor" readonly>
+    </div>
+    <div class="col-md-3">
+      <label for="categoriaProduto" class="form-label">Categoria</label>
+      <input class="form-control" id="categoriaProduto" type="text" [value]="" readonly>
+    </div>
+    <!-- TODO: add categoria -->
+  </div>
+</section>

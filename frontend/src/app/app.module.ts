@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CategoriaModule } from './modules/categoria/categoria.module';
+import { CategoriaListaComponent } from './modules/categoria/pages/categoria-lista/categoria-lista.component';
+import { ProdutoListaComponent } from './modules/produto/pages/produto-lista/produto-lista.component';
+import { ProdutoModule } from './modules/produto/produto.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
@@ -18,7 +21,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CategoriaModule
+    CategoriaModule,
+    ProdutoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
