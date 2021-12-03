@@ -1,0 +1,38 @@
+<section class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h3> {{ produto.nome }} - #{{ produto.id }}</h3>
+    </div>
+    <div class="col-auto mb-3">
+      <a class="btn btn-secondary" role="button" [routerLink]="['/produto/lista']">Ir para lista</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <label for="descricaoProduto" class="form-label">Descrição</label>
+      <input class="form-control" id="descricaoProduto" type="text" [value]="produto.descricao" readonly>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="medidaProduto" class="form-label">Unidade de medida</label>
+      <input class="form-control" id="medidaProduto" type="text" [value]="produto.unidadeMedida" readonly>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <label for="quantidadeProduto" class="form-label">Quantidade</label>
+      <input class="form-control" id="quantidadeProduto" type="number" [value]="produto.qtde" readonly>
+    </div>
+    <div class="col-md-4">
+      <label for="fabricanteProduto" class="form-label">Fabricante</label>
+      <input class="form-control" id="fabricanteProduto" type="text" [value]="produto.fabricante" readonly>
+    </div>
+    <div class="col-md-3">
+      <label for="fornecedorProduto" class="form-label">Fornecedor</label>
+      <input class="form-control" id="fornecedorProduto" type="text" [value]="produto.fornecedor" readonly>
+    </div>
+    <div class="col-md-3">
+      <label for="categoriaProduto" class="form-label">Categoria</label>
+      <input class="form-control" id="categoriaProduto" type="text" [value]="produto.categoria.descricao" readonly>
+    </div>
+  </div>
+</section>
