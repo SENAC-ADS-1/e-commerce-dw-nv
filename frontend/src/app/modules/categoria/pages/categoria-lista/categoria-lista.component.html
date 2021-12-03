@@ -1,16 +1,21 @@
 <section class="col-12 category-list-section">
   <div class="col-9">
+    <h3>Categoria</h3>
     <table class="table table-stripped table-hover">
       <thead>
         <tr>
           <th class="col-3">Código</th>
-          <th class="col-9">Descrição</th>
+          <th class="col-6">Descrição</th>
+          <th class="col-3">Ver mais</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let categoria of categorias.content">
           <td>{{ categoria.id }}</td>
           <td>{{ categoria.descricao }}</td>
+          <td>
+            <button class="btn btn-secondary btn-sm" (click)="visualizar(categoria)">Ver mais</button>
+          </td>
         </tr>
       </tbody>
     </table>
