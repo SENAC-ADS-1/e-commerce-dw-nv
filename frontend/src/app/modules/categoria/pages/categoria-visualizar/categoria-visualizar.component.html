@@ -1,11 +1,20 @@
-<div class="col-md-12">
+<section class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h3>Detalhes da categoria</h3>
+    </div>
+    <div class="col-auto mb-3">
+      <a class="btn btn-dark" role="button" [routerLink]="['/categoria/lista']">Ir para lista</a>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-3">
-        {{categoria.id}}
+      <label for="codigoCategoria" class="form-label">Código</label>
+      <input type="text" class="form-control" id="codigocategoria" [value]="categoria.id" readonly>
     </div>
-    <div class="col-md-6">
-        {{categoria.descricao}}
+    <div class="col-md-9">
+      <label for="descricaoCategoria" class="form-label">Descrição</label>
+      <input type="text" class="form-control" id="descricaoCategoria" [value]="categoria.descricao" readonly>
     </div>
-    <div class="col-md-3">
-        {{categoria.status}}
-    </div>
-</div>
+  </div>
+</section>
