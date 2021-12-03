@@ -26,7 +26,7 @@ public class EnderecoController {
     private ClienteService clienteService;
 
     @PostMapping("/")
-    public ResponseEntity<EnderecoRepresentation.EnderecoDetail> createEndereco(
+    public ResponseEntity<EnderecoRepresentation.EnderecoDetailCompleto> createEndereco(
             @Valid @RequestBody EnderecoRepresentation.EnderecoRep enderecoRep
     ) {
         Cliente cliente = this.clienteService.getCliente(enderecoRep.getCliente());
@@ -34,13 +34,13 @@ public class EnderecoController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(
-                        EnderecoRepresentation.EnderecoDetail.from(
+                        EnderecoRepresentation.EnderecoDetailCompleto.from(
                                 this.enderecoService.saveEndereco(enderecoRep, cliente))
                 );
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EnderecoRepresentation.EnderecoDetail> updateEndereco(
+    public ResponseEntity<EnderecoRepresentation.EnderecoDetailCompleto> updateEndereco(
             @PathVariable("id") Long id,
             @Valid @RequestBody EnderecoRepresentation.EnderecoRep enderecoRep
     ) {
@@ -49,19 +49,19 @@ public class EnderecoController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
-                        EnderecoRepresentation.EnderecoDetail.from(
+                        EnderecoRepresentation.EnderecoDetailCompleto.from(
                                 this.enderecoService.updateEnderecos(id, enderecoRep, cliente))
                 );
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EnderecoRepresentation.EnderecoDetail> readEnderecoById(
+    public ResponseEntity<EnderecoRepresentation.EnderecoDetailCompleto> readEnderecoById(
             @PathVariable("id") Long id
     ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
-                        EnderecoRepresentation.EnderecoDetail.from(
+                        EnderecoRepresentation.EnderecoDetailCompleto.from(
                                 this.enderecoService.getEndereco(id)
                         )
                 );
@@ -101,7 +101,7 @@ public class EnderecoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<EnderecoRepresentation.EnderecoDetail> deleteEndereco(
+    public ResponseEntity<EnderecoRepresentation.EnderecoDetailCompleto> deleteEndereco(
             @PathVariable("id") Long id
     ) {
         this.enderecoService.deleteEnderecos(id);
