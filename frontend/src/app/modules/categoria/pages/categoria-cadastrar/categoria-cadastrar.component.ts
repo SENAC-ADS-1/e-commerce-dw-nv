@@ -10,8 +10,10 @@ import { CategoriaService } from '../../service/categoria.service';
 })
 export class CategoriaCadastrarComponent implements OnInit {
 
-	constructor(private categoriaService: CategoriaService,
-		private routeService: RouteService) { }
+	constructor(
+    private categoriaService: CategoriaService,
+		private routeService: RouteService
+  ) { }
 
 	categoria = {} as ICadastroAtualizacaoCategoria;
 	error = {} as any;
