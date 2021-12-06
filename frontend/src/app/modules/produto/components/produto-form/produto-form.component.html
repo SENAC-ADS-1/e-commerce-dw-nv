@@ -41,10 +41,19 @@
         <label for="fornecedorProduto" class="form-label">Fornecedor</label>
         <input class="form-control" id="fornecedorProduto" type="text" [(ngModel)]="produto.fornecedor" required>
       </div>
-      <div class="col-md-2 mb-3">
+      <div class="col-md-2 mb-3" *ngIf="isVisualizar">
         <label for="categoriaProduto" class="form-label">Categoria</label>
         <select class="form-select" aria-label="Select categoria" [(ngModel)]="categoria.id">
           <option value={{categoria.id}}>{{ categoria.descricao }}</option>
+        </select>
+      </div>
+      <div class="col-md-2 mb-3" *ngIf="!isVisualizar">
+        <label for="categoriaProduto" class="form-label">Categoria</label>
+        <select class="form-select" aria-label="Selecione categoria"  [(ngModel)]="categorias">
+          <option value="" selected>Selecione</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.id">
+            {{ categoria.descricao }}
+          </option>
         </select>
       </div>
     </div>

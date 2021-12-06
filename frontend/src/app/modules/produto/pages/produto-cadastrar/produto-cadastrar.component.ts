@@ -12,7 +12,8 @@ import { ProdutoService } from '../../service/produto.service';
   styleUrls: ['./produto-cadastrar.component.scss']
 })
 export class ProdutoCadastrarComponent implements OnInit {
-  categorias = {} as IPageConfig<ICategoria>;
+  // categorias = {} as IPageConfig<ICategoria>;
+  categorias: ICategoria[] = [];
   error = {} as any;
 
   constructor(
@@ -26,7 +27,9 @@ export class ProdutoCadastrarComponent implements OnInit {
       .categoriaService
       .getFullCategoria()
       .then(res => {
+        console.log(res)
         this.categorias = res;
+        console.log(this.categorias)
       });
   }
 

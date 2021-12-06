@@ -11,7 +11,8 @@ import { IProduto } from '../../model/produto.model';
   styleUrls: ['./produto-form.component.scss']
 })
 export class ProdutoFormComponent implements OnInit {
-  categorias = {} as IPageConfig<ICategoria>;
+  // categorias = {} as IPageConfig<ICategoria>;
+  
 
   constructor(
     private categoriaService: CategoriaService,
@@ -22,14 +23,17 @@ export class ProdutoFormComponent implements OnInit {
   categoria = {} as ICategoria;
   @Input()
   produto = {} as IProduto;
-
+  @Input()
+  categorias: ICategoria[] = [];  
   @Input()
   isVisualizar: boolean = false;
 
   @Output()
   private salvarProdutoEventPublisher = new EventEmitter<IProduto>();
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+
+  }
 
   salvar() {
     this.salvarProdutoEventPublisher.emit(this.produto);
