@@ -6,4 +6,4 @@ export interface ICategoria {
 
 export interface ICadastroAtualizacaoCategoria {
     descricao: string;
-} 
+}

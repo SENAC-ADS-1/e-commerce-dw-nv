@@ -30,7 +30,7 @@ export class ProdutoService {
 
   salvarProduto(produto: IProduto): Promise<IProduto> {
     return this.httpClient
-      .post<IProduto>(`http://localhost:8080/produto`, produto)
+      .post<IProduto>(`http://localhost:8080/produto/`, produto)
       .toPromise();
   }
 }

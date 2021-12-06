@@ -37,4 +37,8 @@ export class ProdutoListaComponent implements OnInit {
   getOne(produto: any) {
     this.routeService.navigate(`produto/visualizar/${produto.id}`);
   }
+
+  cadastrarNovoProduto() {
+		this.routeService.navigate(`/produto/cadastrar`);
+	}
 }
