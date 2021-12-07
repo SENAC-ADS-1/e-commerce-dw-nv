@@ -1,1 +1,9 @@
-<p>produto-atualizar works!</p>
+<app-produto-form 
+  [tipoForm]="2" 
+  [produto]="produto" 
+  [categorias]="categorias" 
+  [categoria]="categoria"
+  (salvarProdutoEventPublisher)="salvar($event)"
+>
+
+</app-produto-form>

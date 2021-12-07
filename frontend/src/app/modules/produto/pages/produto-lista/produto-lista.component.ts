@@ -41,4 +41,8 @@ export class ProdutoListaComponent implements OnInit {
   cadastrarNovoProduto() {
 		this.routeService.navigate(`/produto/cadastrar`);
 	}
+
+  atualizar(produto: any) {
+    this.routeService.navigate(`produto/atualizar/${produto.id}`)
+  }
 }

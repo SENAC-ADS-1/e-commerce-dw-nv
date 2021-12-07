@@ -28,6 +28,9 @@ export class ProdutoFormComponent implements OnInit {
   @Input()
   isVisualizar: boolean = false;
 
+  @Input()
+  tipoForm?: number;
+
   @Output()
   private salvarProdutoEventPublisher = new EventEmitter<IProduto>();
 
