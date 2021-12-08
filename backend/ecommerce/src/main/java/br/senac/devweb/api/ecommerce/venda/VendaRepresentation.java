@@ -1,8 +1,5 @@
 package br.senac.devweb.api.ecommerce.venda;
 
-import br.senac.devweb.api.ecommerce.cliente.ClienteRepresentation;
-import br.senac.devweb.api.ecommerce.endereco.EnderecoRepresentation;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -36,8 +33,8 @@ public interface VendaRepresentation {
     @Builder
     class VendaDetail {
         private Long id;
-        private ClienteRepresentation.ClienteDetail cliente;
-        private EnderecoRepresentation.EnderecoDetail endereco;
+        private Long cliente;
+        private Long endereco;
         private LocalDate criadoEm;
         private String obs;
 
@@ -45,8 +42,8 @@ public interface VendaRepresentation {
             return VendaDetail
                     .builder()
                     .id(venda.getId())
-                    .cliente(ClienteRepresentation.ClienteDetail.from(venda.getCliente()))
-                    .endereco(EnderecoRepresentation.EnderecoDetail.from(venda.getEndereco()))
+                    .cliente(venda.getCliente().getId())
+                    .endereco(venda.getEndereco().getId())
                     .criadoEm(venda.getCriadoEm())
                     .obs(venda.getObs())
                     .build();
@@ -59,8 +56,8 @@ public interface VendaRepresentation {
     @Builder
     class VendaList {
         private Long id;
-        private ClienteRepresentation.ClienteDetail cliente;
-        private EnderecoRepresentation.EnderecoDetail endereco;
+        private Long cliente;
+        private Long endereco;
         private LocalDate criadoEm;
         private String obs;
 
@@ -68,8 +65,8 @@ public interface VendaRepresentation {
             return VendaList
                     .builder()
                     .id(venda.getId())
-                    .cliente(ClienteRepresentation.ClienteDetail.from(venda.getCliente()))
-                    .endereco(EnderecoRepresentation.EnderecoDetail.from(venda.getEndereco()))
+                    .cliente(venda.getCliente().getId())
+                    .endereco(venda.getEndereco().getId())
                     .criadoEm(venda.getCriadoEm())
                     .obs(venda.getObs())
                     .build();

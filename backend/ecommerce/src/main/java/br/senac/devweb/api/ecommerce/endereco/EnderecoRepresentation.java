@@ -1,6 +1,5 @@
 package br.senac.devweb.api.ecommerce.endereco;
 
-import br.senac.devweb.api.ecommerce.cliente.ClienteRepresentation;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -78,13 +77,13 @@ public interface EnderecoRepresentation {
     @Setter
     @SuperBuilder
     class EnderecoDetailCompleto extends EnderecoDetail {
-        private ClienteRepresentation.ClienteDetail cliente;
+        private Long cliente;
 
         public static EnderecoDetailCompleto from(Endereco endereco) {
             return EnderecoDetailCompleto
                     .builder()
                     .id(endereco.getId())
-                    .cliente(ClienteRepresentation.ClienteDetail.from(endereco.getCliente()))
+                    .cliente(endereco.getCliente().getId())
                     .tipo(endereco.getTipo())
                     .estado(endereco.getEstado())
                     .cidade(endereco.getCidade())
@@ -102,7 +101,7 @@ public interface EnderecoRepresentation {
     @Builder
     class EnderecoList {
         private Long id;
-        private ClienteRepresentation.ClienteDetail cliente;
+        private Long cliente;
         private Endereco.Tipo tipo;
         private String state;
         private String city;
@@ -115,7 +114,7 @@ public interface EnderecoRepresentation {
             return EnderecoList.
                     builder()
                     .id(endereco.getId())
-                    .cliente(ClienteRepresentation.ClienteDetail.from(endereco.getCliente()))
+                    .cliente(endereco.getCliente().getId())
                     .tipo(endereco.getTipo())
                     .state(endereco.getEstado())
                     .city(endereco.getCidade())

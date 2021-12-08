@@ -1,6 +1,5 @@
 package br.senac.devweb.api.products.produto;
 
-import br.senac.devweb.api.products.categoria.CategoriaRepresentation;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -60,7 +59,7 @@ public interface ProdutoRepresentation {
         private Double qtde;
         private String fabricante;
         private String fornecedor;
-        private CategoriaRepresentation.CategoriaDetail categoria;
+        private Long categoria;
 
         public static ProdutoDetail from(Produto produto) {
             return ProdutoDetail
@@ -74,7 +73,7 @@ public interface ProdutoRepresentation {
                     .qtde(produto.getQtde())
                     .fabricante(produto.getFabricante())
                     .fornecedor(produto.getFornecedor())
-                    .categoria(CategoriaRepresentation.CategoriaDetail.from(produto.getCategoria()))
+                    .categoria(produto.getCategoria().getId())
                     .build();
         }
     }
@@ -93,7 +92,7 @@ public interface ProdutoRepresentation {
         private Double qtde;
         private String fabricante;
         private String fornecedor;
-        private CategoriaRepresentation.CategoriaDetail categoria;
+        private Long categoria;
 
         private static ProdutoList from(Produto produto) {
             return ProdutoList
@@ -107,7 +106,7 @@ public interface ProdutoRepresentation {
                     .qtde(produto.getQtde())
                     .fabricante(produto.getFabricante())
                     .fornecedor(produto.getFornecedor())
-                    .categoria(CategoriaRepresentation.CategoriaDetail.from(produto.getCategoria()))
+                    .categoria(produto.getCategoria().getId())
                     .build();
         }
 
