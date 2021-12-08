@@ -1,8 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { ProdutoAtualizarComponent } from './pages/produto-atualizar/produto-atualizar.component';
+import { ProdutoCadastrarComponent } from './pages/produto-cadastrar/produto-cadastrar.component';
 import { ProdutoListaComponent } from './pages/produto-lista/produto-lista.component';
-import { ProdutoVisualizarComponent } from './pages/produto-visualizar/produto-visualizar.component';
 
 @Component({
   template: '<router-outlet></router-outlet>'
@@ -16,7 +17,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/produto/lista', pathMatch: 'full' },
       { path: 'lista', component: ProdutoListaComponent },
-      { path: 'visualizar/:idProduto', component: ProdutoVisualizarComponent }
+      { path: 'cadastrar', component: ProdutoCadastrarComponent },
+      { path: 'atualizar/:idProduto', component: ProdutoAtualizarComponent }
     ]
   }
 ]

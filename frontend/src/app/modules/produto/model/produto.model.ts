@@ -1,3 +1,5 @@
+import { ICategoria } from '../../categoria/model/categoria.model';
+
 export interface IProduto {
   id: number;
   nome: string;
@@ -8,5 +10,9 @@ export interface IProduto {
   qtde: number;
   fabricante: string;
   fornecedor?: string;
-  categoria: any;
+  categoria: number;
+}
+
+export interface ICadastroAtualizacaoCategoria {
+  id: number;
 }

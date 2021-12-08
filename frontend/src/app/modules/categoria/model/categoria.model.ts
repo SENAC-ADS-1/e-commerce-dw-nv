@@ -1,9 +1,9 @@
 export interface ICategoria {
-    id: number;
+    id?: number;
     descricao: string;
     status?: string;
 }
 
 export interface ICadastroAtualizacaoCategoria {
     descricao: string;
-} 
+}

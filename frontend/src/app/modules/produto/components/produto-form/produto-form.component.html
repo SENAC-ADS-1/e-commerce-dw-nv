@@ -1,0 +1,79 @@
+<section class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>Produto</h3>
+      </div>
+      <div class="col-auto mb-5">
+        <button class="btn btn-dark" (click)="goBack()">Voltar</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="descricaoProduto" class="form-label">Nome</label>
+        <input class="form-control" id="descricaoProduto" type="text" [(ngModel)]="produto.nome" required [readonly]="isVisualizar">
+      </div>
+      <div class="col-md-4">
+        <label for="descricaoProduto" class="form-label">Descrição</label>
+        <input class="form-control" id="descricaoProduto" type="text" [(ngModel)]="produto.descricao" required [readonly]="isVisualizar">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="complementoProduto" class="form-label">Complemento</label>
+        <input class="form-control" id="complementoProduto" type="text" [(ngModel)]="produto.complemento" [readonly]="isVisualizar">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="valorProduto" class="form-label">Valor R$</label>
+        <input class="form-control" id="valorProduto" type="text" [(ngModel)]="produto.valor" required [readonly]="isVisualizar">
+      </div>
+      <div class="col-md-4">
+        <label for="medidaProduto" class="form-label">Unidade de medida</label>
+        <input class="form-control" id="medidaProduto" type="text" [(ngModel)]="produto.unidadeMedida" required [readonly]="isVisualizar">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="quantidadeProduto" class="form-label">Quantidade</label>
+        <input class="form-control" id="quantidadeProduto" type="number" [(ngModel)]="produto.qtde" required [readonly]="isVisualizar">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <label for="fabricanteProduto" class="form-label">Fabricante</label>
+        <input class="form-control" id="fabricanteProduto" type="text" [(ngModel)]="produto.fabricante" [readonly]="isVisualizar">
+      </div>
+      <div class="col-md-5">
+        <label for="fornecedorProduto" class="form-label">Fornecedor</label>
+        <input class="form-control" id="fornecedorProduto" type="text" [(ngModel)]="produto.fornecedor" required [readonly]="isVisualizar">
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="categoriaProduto" class="form-label">Categoria</label>
+        <select class="form-select" aria-label="Selecione categoria"  [(ngModel)]="produto.categoria" [disabled]="isVisualizar">
+          <option value="" selected disabled>Selecione</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.id">
+            {{ categoria.descricao }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-2 mb-3" *ngIf="tipoForm === 2">
+        <label for="categoriaProduto" class="form-label">Categoria</label>
+        <select class="form-select" aria-label="Selecione categoria"  [(ngModel)]="produto.categoria" [disabled]="isVisualizar">
+          <option value="" selected disabled>Selecione</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.id">
+            {{ categoria.descricao }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-auto">
+        <button class="btn btn-success" (click)="salvar()">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

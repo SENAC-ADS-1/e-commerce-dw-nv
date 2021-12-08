@@ -21,4 +21,22 @@ export class ProdutoService {
       .get<IProduto>(`http://localhost:8080/produto/${id}`)
       .toPromise();
   }
+
+  atualizarProduto(produto: IProduto): Promise<IProduto> {
+    return this.httpClient
+      .put<IProduto>(`http://localhost:8080/produto/${produto.id}`, produto)
+      .toPromise();
+  }
+
+  salvarProduto(produto: IProduto): Promise<IProduto> {
+    return this.httpClient
+      .post<IProduto>(`http://localhost:8080/produto/`, produto)
+      .toPromise();
+  }
+
+  deletarProduto(produto: IProduto): Promise<IProduto> {
+    return this.httpClient
+      .delete<IProduto>(`http://localhost:8080/produto/${produto.id}`)
+      .toPromise();
+  }
 }

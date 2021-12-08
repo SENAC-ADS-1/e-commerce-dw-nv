@@ -36,7 +36,7 @@ export class CategoriaService {
 
 	getFullCategoria(): Promise<ICategoria[]> {
 		return this.httpClient
-			.get<ICategoria[]>('http://localhost:8080/categoria/full-categoria').toPromise();
+			.get<ICategoria[]>('http://localhost:8080/categoria/unpaginated').toPromise();
 	}
 
 	getOne(id: number): Promise<ICategoria> {
