@@ -10,5 +10,9 @@ export interface IProduto {
   qtde: number;
   fabricante: string;
   fornecedor?: string;
-  categoria: ICategoria;
+  categoria: number;
+}
+
+export interface ICadastroAtualizacaoCategoria {
+  id: number;
 }

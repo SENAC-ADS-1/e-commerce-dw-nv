@@ -34,6 +34,8 @@ export class ProdutoCadastrarComponent implements OnInit {
   }
 
   salvar($event: IProduto) {
+    console.log('---------------------------')
+    console.log($event)
 		this.produtoService.salvarProduto($event)
 			.then(() => {
 				this.routeService.navigate('/produto/lista');

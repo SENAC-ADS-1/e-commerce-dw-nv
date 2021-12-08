@@ -45,4 +45,8 @@ export class ProdutoListaComponent implements OnInit {
   atualizar(produto: any) {
     this.routeService.navigate(`produto/atualizar/${produto.id}`)
   }
+
+  remover(produto: any) {
+    this.produtoService.deletarProduto(produto).then(() => this.getAll());
+  }
 }

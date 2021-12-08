@@ -28,11 +28,11 @@
           <td>R$ {{ produto.valor }}</td>
           <td>
             <div class="btn-group" role="group" aria-label="Ações">
-              <button class="btn btn-outline-secondary btn-sm" (click)="getOne(produto)"><i
-                  class="bi bi-eye"></i></button>
+              <!-- <button class="btn btn-outline-secondary btn-sm" (click)="getOne(produto)"><i
+                  class="bi bi-eye"></i></button> -->
             <button class="btn btn-outline-success btn-sm" (click)="atualizar(produto)" ><i
                   class="bi bi-pencil"></i></button>
-              <button class="btn btn-outline-danger btn-sm"><i
+              <button class="btn btn-outline-danger btn-sm" (click)="remover(produto)"><i
                   class="bi bi-trash2"></i></button>
             </div>
           </td>

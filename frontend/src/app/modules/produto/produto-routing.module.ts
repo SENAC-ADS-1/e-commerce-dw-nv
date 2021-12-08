@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProdutoAtualizarComponent } from './pages/produto-atualizar/produto-atualizar.component';
 import { ProdutoCadastrarComponent } from './pages/produto-cadastrar/produto-cadastrar.component';
 import { ProdutoListaComponent } from './pages/produto-lista/produto-lista.component';
-import { ProdutoVisualizarComponent } from './pages/produto-visualizar/produto-visualizar.component';
 
 @Component({
   template: '<router-outlet></router-outlet>'
@@ -19,8 +18,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/produto/lista', pathMatch: 'full' },
       { path: 'lista', component: ProdutoListaComponent },
       { path: 'cadastrar', component: ProdutoCadastrarComponent },
-      { path: 'atualizar/:idProduto', component: ProdutoAtualizarComponent },
-      { path: 'visualizar/:idProduto', component: ProdutoVisualizarComponent },
+      { path: 'atualizar/:idProduto', component: ProdutoAtualizarComponent }
     ]
   }
 ]

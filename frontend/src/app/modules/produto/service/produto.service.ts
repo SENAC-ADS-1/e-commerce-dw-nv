@@ -33,4 +33,10 @@ export class ProdutoService {
       .post<IProduto>(`http://localhost:8080/produto/`, produto)
       .toPromise();
   }
+
+  deletarProduto(produto: IProduto): Promise<IProduto> {
+    return this.httpClient
+      .delete<IProduto>(`http://localhost:8080/produto/${produto.id}`)
+      .toPromise();
+  }
 }

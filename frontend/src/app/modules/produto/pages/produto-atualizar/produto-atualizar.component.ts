@@ -21,7 +21,6 @@ export class ProdutoAtualizarComponent implements OnInit {
   ) { }
   
   produto = {} as IProduto;
-  categoria = {} as ICategoria;
   categorias: ICategoria[] = [];
   error = {} as any;
 
@@ -31,8 +30,8 @@ export class ProdutoAtualizarComponent implements OnInit {
     this.categoriaService
         .getFullCategoria()
         .then(res => {
-          console.log(res)
           this.categorias = res;
+          console.log('Produto atualizar component:')
           console.log(this.categorias)
         });
   }
@@ -40,9 +39,9 @@ export class ProdutoAtualizarComponent implements OnInit {
   getOne(id: number) {
     this.produtoService.getOne(id)
       .then(res => {
-        console.log(res);
+        console.log('Atualizar produto: ', res);
         this.produto = res;
-        this.categoria = this.produto.categoria;
+
       })
   }
 

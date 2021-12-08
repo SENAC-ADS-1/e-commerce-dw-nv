@@ -1,6 +1,5 @@
 import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IPageConfig } from 'src/app/commons/models/pagination.model';
 import { ICategoria } from 'src/app/modules/categoria/model/categoria.model';
 import { CategoriaService } from 'src/app/modules/categoria/service/categoria.service';
 import { IProduto } from '../../model/produto.model';
@@ -11,8 +10,6 @@ import { IProduto } from '../../model/produto.model';
   styleUrls: ['./produto-form.component.scss']
 })
 export class ProdutoFormComponent implements OnInit {
-  // categorias = {} as IPageConfig<ICategoria>;
-  
 
   constructor(
     private categoriaService: CategoriaService,
@@ -20,14 +17,11 @@ export class ProdutoFormComponent implements OnInit {
   ) { }
 
   @Input()
-  categoria = {} as ICategoria;
-  @Input()
   produto = {} as IProduto;
   @Input()
   categorias: ICategoria[] = [];  
   @Input()
   isVisualizar: boolean = false;
-
   @Input()
   tipoForm?: number;
 
