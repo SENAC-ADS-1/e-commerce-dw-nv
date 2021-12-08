@@ -1,7 +1,5 @@
 package br.senac.devweb.api.ecommerce.item;
 
-import br.senac.devweb.api.ecommerce.produto.ProdutoRepresentation;
-import br.senac.devweb.api.ecommerce.venda.VendaRepresentation;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -40,8 +38,8 @@ public interface ItemRepresentation {
     @Builder
     class ItemDetail {
         private Long id;
-        private VendaRepresentation.VendaDetail venda;
-        private ProdutoRepresentation.ProdutoDetail produto;
+        private Long venda;
+        private Long produto;
         private double valor;
         private double quantidade;
         private String obs;
@@ -50,8 +48,8 @@ public interface ItemRepresentation {
             return ItemDetail
                     .builder()
                     .id(item.getId())
-                    .venda(VendaRepresentation.VendaDetail.from(item.getVenda()))
-                    .produto(ProdutoRepresentation.ProdutoDetail.from(item.getProduto()))
+                    .venda(item.getVenda().getId())
+                    .produto(item.getProduto().getId())
                     .valor(item.getValor())
                     .quantidade(item.getQuantidade())
                     .obs(item.getObs())
@@ -65,8 +63,8 @@ public interface ItemRepresentation {
     @Builder
     class ItemList {
         private Long id;
-        private VendaRepresentation.VendaDetail venda;
-        private ProdutoRepresentation.ProdutoDetail produto;
+        private Long venda;
+        private Long produto;
         private double valor;
         private double quantidade;
         private String obs;
@@ -75,8 +73,8 @@ public interface ItemRepresentation {
             return ItemList
                     .builder()
                     .id(item.getId())
-                    .venda(VendaRepresentation.VendaDetail.from(item.getVenda()))
-                    .produto(ProdutoRepresentation.ProdutoDetail.from(item.getProduto()))
+                    .venda(item.getVenda().getId())
+                    .produto(item.getProduto().getId())
                     .valor(item.getValor())
                     .quantidade(item.getQuantidade())
                     .obs(item.getObs())

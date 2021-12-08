@@ -1,6 +1,5 @@
 package br.senac.devweb.api.ecommerce.contato;
 
-import br.senac.devweb.api.ecommerce.cliente.ClienteRepresentation;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -46,7 +45,7 @@ public interface ContatoRepresentation {
     @Builder
     class ContatoDetail {
         private Long id;
-        private ClienteRepresentation.ClienteDetail cliente;
+        private Long cliente;
         private Contato.Tipo tipo;
         private String recuperacao;
         private String email;
@@ -57,7 +56,7 @@ public interface ContatoRepresentation {
             return ContatoDetail
                     .builder()
                     .id(contato.getId())
-                    .cliente(ClienteRepresentation.ClienteDetail.from(contato.getCliente()))
+                    .cliente(contato.getCliente().getId())
                     .tipo(contato.getTipo())
                     .recuperacao(contato.getRecuperacao())
                     .email(contato.getEmail())
@@ -73,7 +72,7 @@ public interface ContatoRepresentation {
     @Builder
     class ContatoList {
         private Long id;
-        private ClienteRepresentation.ClienteDetail cliente;
+        private Long cliente;
         private Contato.Tipo tipo;
         private String recuperacao;
         private String email;
@@ -84,7 +83,7 @@ public interface ContatoRepresentation {
             return ContatoList
                     .builder()
                     .id(contato.getId())
-                    .cliente(ClienteRepresentation.ClienteDetail.from(contato.getCliente()))
+                    .cliente(contato.getCliente().getId())
                     .tipo(contato.getTipo())
                     .recuperacao(contato.getRecuperacao())
                     .email(contato.getEmail())
