@@ -37,6 +37,32 @@ public interface ClienteRepresentation {
     @Data
     @Getter
     @Setter
+    class ClienteUpdatePassword {
+        @NotNull(message = "O campo senha não pode ser nulo!")
+        @Size(min = 1, max = 100,  message = "O campo senha deve conter entre 1 e 100 caracteres!")
+        private String senha;
+    }
+
+    @Data
+    @Getter
+    @Setter
+    class ClienteUpdateData {
+        @NotNull(message = "O campo nomeCompleto não pode ser nulo!")
+        @Size(max = 100, min = 1, message = "O campo nomeCompleto deve conter entre 1 e 100 caracteres!")
+        private String nomeCompleto;
+
+        @NotNull(message = "O campo usuario não pode ser nulo!")
+        @Size(min = 1, max = 20, message = "O campo usuario deve conter entre 1 e 20 caracteres!")
+        private String usuario;
+
+        @NotNull(message = "O campo dataNascimento não pode ser nulo!")
+        @Past(message = "O campo dataNascimento não pode ser maior que hoje!")
+        private LocalDate dataNascimento;
+    }
+
+    @Data
+    @Getter
+    @Setter
     @Builder
     class ClienteDetail {
         private Long id;

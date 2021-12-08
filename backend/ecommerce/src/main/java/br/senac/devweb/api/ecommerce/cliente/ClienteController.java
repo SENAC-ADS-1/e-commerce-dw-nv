@@ -23,7 +23,7 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping("/")
-    public ResponseEntity<ClienteRepresentation.ClienteDetail> createClient(
+    public ResponseEntity<ClienteRepresentation.ClienteDetail> createCliente(
             @Valid @RequestBody ClienteRepresentation.ClienteRep clienteRep
     ) {
         return ResponseEntity
@@ -34,21 +34,33 @@ public class ClienteController {
                 );
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<ClienteRepresentation.ClienteDetail> updateClient(
+    @PutMapping("/{id}/data")
+    public ResponseEntity<ClienteRepresentation.ClienteDetail> updateClienteData(
             @PathVariable("id") Long id,
-            @Valid @RequestBody ClienteRepresentation.ClienteRep clienteRep
+            @Valid @RequestBody ClienteRepresentation.ClienteUpdateData clienteUpdateData
     ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
                         ClienteRepresentation.ClienteDetail.from(
-                                this.clienteService.updateCliente(id, clienteRep))
+                                this.clienteService.updateClienteData(id, clienteUpdateData))
                 );
     }
 
+    @PutMapping("/{id}/password")
+    public ResponseEntity<ClienteRepresentation.ClienteDetail> updateClientePassword(
+            @PathVariable("id") Long id,
+            @Valid @RequestBody ClienteRepresentation.ClienteUpdatePassword clienteUpdatePassword
+    ) {
+        this.clienteService.updateClientePassword(id, clienteUpdatePassword);
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .build();
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteRepresentation.ClienteDetail> readClientById(
+    public ResponseEntity<ClienteRepresentation.ClienteDetail> readClienteById(
             @PathVariable("id") Long id
     ) {
         return ResponseEntity
@@ -61,7 +73,7 @@ public class ClienteController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<Pagination> readAllClients(
+    public ResponseEntity<Pagination> readAllClientes(
             @QuerydslPredicate(root = Cliente.class) Predicate filters,
             @Valid @RequestParam(name = "selectedPage", defaultValue = "1") Integer selectedPage,
             @RequestParam(name = "pageSize", required = false, defaultValue = "20") Integer pageSize
@@ -94,7 +106,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ClienteRepresentation.ClienteDetail> deleteClient(
+    public ResponseEntity<ClienteRepresentation.ClienteDetail> deleteCliente(
             @PathVariable("id") Long id
     ) {
         this.clienteService.deleteCliente(id);
