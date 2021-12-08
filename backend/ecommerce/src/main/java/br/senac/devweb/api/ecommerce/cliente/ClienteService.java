@@ -39,19 +39,29 @@ public class ClienteService {
         return this.clientRepository.findAll(filter, pageable);
     }
 
-    public Cliente updateCliente(Long id, ClienteRepresentation.ClienteRep clientRep) {
+    public Cliente updateClienteData(Long id, ClienteRepresentation.ClienteUpdateData clienteUpdateData) {
         Cliente oldData = this.getCliente(id);
 
         Cliente updatedData = oldData
                 .toBuilder()
-                .nomeCompleto(clientRep.getNomeCompleto())
+                .nomeCompleto(clienteUpdateData.getNomeCompleto())
                 .status(Cliente.Status.ATIVO)
-                .usuario(clientRep.getUsuario())
-                .senha(this.bCryptPasswordEncoder.encode(clientRep.getSenha()))
-                .dataNascimento(clientRep.getDataNascimento())
+                .usuario(clienteUpdateData.getUsuario())
+                .dataNascimento(clienteUpdateData.getDataNascimento())
                 .build();
 
         return this.clientRepository.save(updatedData);
+    }
+
+    public void updateClientePassword(Long id, ClienteRepresentation.ClienteUpdatePassword clienteUpdatePassword) {
+        Cliente oldData = this.getCliente(id);
+
+        Cliente updatedData = oldData
+                .toBuilder()
+                .senha(bCryptPasswordEncoder.encode(clienteUpdatePassword.getSenha()))
+                .build();
+
+        this.clientRepository.save(updatedData);
     }
 
     public void deleteCliente(Long id) {

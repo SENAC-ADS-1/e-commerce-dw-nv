@@ -13,7 +13,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final String[] AUTH_WHITELIST = {
             "/administrador/*",
             "/categoria/*",
-            "/cliente/*",
+            "/cliente/**",
             "/contato/*",
             "/endereco/*",
             "/item/*",
