@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RouteService } from 'src/app/commons/services/route.service';
 import { ICliente } from '../../model/cliente.model';
-import { ClienteService } from '../../service/cliente-service.service';
+import { ClienteService } from '../../service/cliente.service';
 
 @Component({
   selector: 'app-cliente-cadastrar',

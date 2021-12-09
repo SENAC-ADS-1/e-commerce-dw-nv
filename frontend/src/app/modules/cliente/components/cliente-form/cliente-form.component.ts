@@ -13,6 +13,9 @@ export class ClienteFormComponent implements OnInit {
 
   @Input()
   cliente = {} as ICliente;
+  
+  @Input()
+  isAtualizarData: boolean = false;
 
   @Output()
   private salvarClienteEventPublisher = new EventEmitter<ICliente>();

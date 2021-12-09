@@ -34,4 +34,16 @@ export class ClienteService {
       .toPromise();
   }
 
+  atualizarCliente(cliente: ICliente): Promise<ICliente> {
+		return this.httpClient
+			.put<ICliente>(`http://localhost:8080/cliente/${cliente.id}/data`, cliente)
+			.toPromise();
+	}
+
+  atualizarClienteSenha(cliente: ICliente): Promise<ICliente> {
+		return this.httpClient
+			.put<ICliente>(`http://localhost:8080/cliente/${cliente.id}/password`, cliente)
+			.toPromise();
+	}
+
 }

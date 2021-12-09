@@ -5,13 +5,17 @@ import { ClienteRoutingModule, GenericRouterComponent } from './cliente-routing.
 import { ClienteListaComponent } from './pages/cliente-lista/cliente-lista.component';
 import { ClienteCadastrarComponent } from './pages/cliente-cadastrar/cliente-cadastrar.component';
 import { ClienteFormComponent } from './components/cliente-form/cliente-form.component';
+import { ClienteAtualizarComponent } from './pages/cliente-atualizar/cliente-atualizar.component';
+import { ClienteAtualizarSenhaComponent } from './pages/cliente-atualizar-senha/cliente-atualizar-senha.component';
 
 @NgModule({
   declarations: [
     GenericRouterComponent,
     ClienteListaComponent,
     ClienteCadastrarComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
+    ClienteAtualizarComponent,
+    ClienteAtualizarSenhaComponent,
   ],
   imports: [
     CommonModule,
