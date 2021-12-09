@@ -12,12 +12,14 @@ import { ProdutoModule } from './modules/produto/produto.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ClienteListaComponent } from './modules/cliente/pages/cliente-lista/cliente-lista.component';
 import { ClienteModule } from './modules/cliente/cliente.module';
+import { VendaListaComponent } from './modules/venda/pages/venda-lista/venda-lista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidebarComponent,
+    VendaListaComponent,
   ],
   imports: [
     BrowserModule,
