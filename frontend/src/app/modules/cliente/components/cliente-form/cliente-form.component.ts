@@ -13,15 +13,13 @@ export class ClienteFormComponent implements OnInit {
 
   @Input()
   cliente = {} as ICliente;
-  
   @Input()
-  isAtualizarData: boolean = false;
+  tipoForm: number = 0;
 
   @Output()
   private salvarClienteEventPublisher = new EventEmitter<ICliente>();
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
   goBack() {
     this.location.back();
@@ -30,5 +28,4 @@ export class ClienteFormComponent implements OnInit {
   salvar() {
     this.salvarClienteEventPublisher.emit(this.cliente);
   }
-
 }
