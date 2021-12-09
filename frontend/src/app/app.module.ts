@@ -10,19 +10,22 @@ import { CategoriaListaComponent } from './modules/categoria/pages/categoria-lis
 import { ProdutoListaComponent } from './modules/produto/pages/produto-lista/produto-lista.component';
 import { ProdutoModule } from './modules/produto/produto.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ClienteListaComponent } from './modules/cliente/pages/cliente-lista/cliente-lista.component';
+import { ClienteModule } from './modules/cliente/cliente.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CategoriaModule,
-    ProdutoModule
+    ProdutoModule,
+    ClienteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
