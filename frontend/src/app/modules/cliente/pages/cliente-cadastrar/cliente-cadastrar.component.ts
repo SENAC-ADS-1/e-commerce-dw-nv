@@ -34,7 +34,6 @@ export class ClienteCadastrarComponent implements OnInit {
 
   }
   
-
   goBack() {
     this.location.back();
   }

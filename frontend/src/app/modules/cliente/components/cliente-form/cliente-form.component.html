@@ -12,22 +12,22 @@
     <div class="row">
       <div class="col-md-6">
         <label for="nomeCliente" class="form-label">Nome completo</label>
-        <input type="text" class="form-control" id="nomeCliente" [(ngModel)]="cliente.nomeCompleto" [readonly]="!isAtualizarData">
+        <input type="text" class="form-control" id="nomeCliente" [(ngModel)]="cliente.nomeCompleto" [readonly]="tipoForm === 3">
       </div>
       <div class="col-md-6 mb-3">
         <label for="usuarioCliente" class="form-label">Usuário</label>
-        <input type="text" class="form-control" id="usuarioCliente" [(ngModel)]="cliente.usuario" [readonly]="!isAtualizarData">
+        <input type="text" class="form-control" id="usuarioCliente" [(ngModel)]="cliente.usuario" [readonly]="tipoForm === 3">
       </div>
     </div>
     
     <div class="row">
       <div class="col-md-6">
         <label for="dataNascimentoCliente" class="form-label">Data de nascimento</label>
-        <input type="date" name="dataNascimentoCliente" id="dataNascimentoCliente" class="form-control" [(ngModel)]="cliente.dataNascimento" [readonly]="!isAtualizarData">
+        <input type="date" name="dataNascimentoCliente" id="dataNascimentoCliente" class="form-control" [(ngModel)]="cliente.dataNascimento" [readonly]="tipoForm === 3">
       </div>
       <div class="col-md-6 mb-3">
         <label for="senhaCliente" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="senhaCliente" [(ngModel)]="cliente.senha" [readonly]="isAtualizarData">
+        <input type="password" class="form-control" id="senhaCliente" [(ngModel)]="cliente.senha" [readonly]="tipoForm === 2">
       </div>
     </div>
 
